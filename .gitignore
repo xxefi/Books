@@ -1,0 +1,159 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+.pnp.js
+.pnp.cjs
+
+.gitignore/
+
+# TypeScript
+dist/
+build/
+tsconfig.tsbuildinfo
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.sug
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Next.js build output
+.next/
+out/
+
+# Next.js static export
+out/
+
+# Nuxt.js build output
+.nuxt/
+dist/
+
+# SvelteKit build output
+.svelte-kit/
+
+# Vue.js build output
+dist/
+
+# Parcel-bundler cache
+.cache/
+
+# Webpack
+webpack.config.js
+webpack.config.prod.js
+webpack.config.dev.js
+webpack.config.ts
+webpack.config.prod.ts
+webpack.config.dev.ts
+
+# JetBrains IDEs (e.g. IntelliJ, WebStorm)
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Log files
+logs/
+*.log
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# TypeScript v1 declaration files
+typings/
+
+# Tye debugging files
+.tye/
+
+# Local environment files
+.env.*
+.env
+.envrc
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# AWS SAM build artifacts
+.aws-sam/
+
+# Serverless Framework
+.serverless/
+
+# Jest coverage
+coverage/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# VS Code settings
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+
+# npm packages
+node_modules/
+
+# Log files
+*.log
+*.log.*
+
+# Test reports
+test-reports/
+test-results/
+
+# Bower dependencies
+bower_components/
+
+# SASS/SCSS/LESS files
+.sass-cache/
+scss-lint.yml

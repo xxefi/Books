@@ -1,0 +1,191 @@
+[
+  {
+    "id": "3400cda2-aa5c-4154-b711-2ee6a43bf35e",
+    "title": "Beneath the Waves",
+    "author": "Liam O'Connor",
+    "year": 2003,
+    "genre": "Adventure"
+  },
+  {
+    "id": "c789682e-20a6-4914-bdf2-07796bace240",
+    "title": "Silent Echo",
+    "author": "Ella Johnson",
+    "year": 2020,
+    "genre": "Horror"
+  },
+  {
+    "id": "e4cfe451-1716-416a-8e53-c2c1f12395d0",
+    "title": "Stars Beyond the Sky",
+    "author": "Olivia Green",
+    "year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "id": "0572d7f0-9b86-4bbc-9b1f-f784522d83c5",
+    "title": "The Red Horizon",
+    "author": "James Walker",
+    "year": 2015,
+    "genre": "Action"
+  },
+  {
+    "id": "826ad9f7-0744-43ee-88ff-9fffb4905a05",
+    "title": "Into the Abyss",
+    "author": "Charlotte King",
+    "year": 2011,
+    "genre": "Thriller"
+  },
+  {
+    "id": "305389b6-32a9-4cd4-a4a0-b0b08aa91370",
+    "title": "Whispers in the Dark",
+    "author": "David Harris",
+    "year": 2008,
+    "genre": "Horrora"
+  },
+  {
+    "id": "ea0a7aa9-35d8-4b74-90be-0f859795efc0",
+    "title": "A Journey to the Starsa",
+    "author": "Isabella White",
+    "year": 2021,
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": "36caf734-94c5-4f8e-a65b-30b769cc8420",
+    "title": "The Crystal Labyrinth",
+    "author": "Sarah Turner",
+    "year": "2020",
+    "genre": "Fantasy"
+  },
+  {
+    "id": "470c6f84-d161-45da-9110-70197c4d2a13",
+    "title": "The Edge of Time",
+    "author": "Benjamin Scott",
+    "year": 2017,
+    "genre": "Action"
+  },
+  {
+    "id": "1b61bf56-04e6-47c2-acc5-65e48d58653b",
+    "title": "Moonlit Nights",
+    "author": "Lucas Mitchell",
+    "year": 2001,
+    "genre": "Romance"
+  },
+  {
+    "id": "9bd607d0-70e5-4be6-bf63-d708a604453b",
+    "title": "Secrets of the Universe",
+    "author": "Harper Evans",
+    "year": 2023,
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": "2317b511-0270-4743-900f-e9ed5707281b",
+    "title": "Echoes of Silence",
+    "author": "Amelia Moore",
+    "year": 2006,
+    "genre": "Mystery"
+  },
+  {
+    "id": "eae5c88e-a7a6-4ae7-bc2e-d67f4342421f",
+    "title": "Stormy Nights",
+    "author": "Ethan Taylor",
+    "year": 2007,
+    "genre": "Romance"
+  },
+  {
+    "id": "c2e43b06-630f-434d-80d7-a6118ab83676",
+    "title": "The Forgotten Legend",
+    "author": "Zoe Davis",
+    "year": 1998,
+    "genre": "Fantasy"
+  },
+  {
+    "id": "57c4a0de-b52b-40d9-be24-81f3c7351c39",
+    "title": "The Silent Witness",
+    "author": "Charlotte Lee",
+    "year": 2016,
+    "genre": "Mystery"
+  },
+  {
+    "id": "3a0ea5e1-ebaa-409f-bc88-f9d30dfa8e4e",
+    "title": "Journey Through Fire",
+    "author": "Mia Brown",
+    "year": 2004,
+    "genre": "Adventure"
+  },
+  {
+    "id": "5f10c004-b393-44a7-b891-844824d548cf",
+    "title": "Through the Mist",
+    "author": "Leo Carter",
+    "year": 2000,
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": "e783610d-e76b-4867-8024-4e5aa6578ecf",
+    "title": "City of Shadows",
+    "author": "Lily Adams",
+    "year": 1993,
+    "genre": "Action"
+  },
+  {
+    "id": "295b5531-6184-4371-b7a7-2c5fa8d76319",
+    "title": "Beneath the Surface",
+    "author": "Ryan Miller",
+    "year": 2022,
+    "genre": "Thriller"
+  },
+  {
+    "id": "01cca346-a54f-4dd3-a5f5-9cc9f03f5343",
+    "title": "Whispers of the Forgotten",
+    "author": "Sophia Clark",
+    "year": 2010,
+    "genre": "Mystery"
+  },
+  {
+    "id": "bbe2a0a2-4ece-482a-8147-3d2a8f047901",
+    "title": "The Last Sunrise",
+    "author": "Isabella White",
+    "year": 2014,
+    "genre": "Fantasy"
+  },
+  {
+    "id": "ba47bef9-efd2-421e-a7b6-e8ca284ab294",
+    "title": "The Eternal Night",
+    "author": "Jackson King",
+    "year": 2005,
+    "genre": "Thriller"
+  },
+  {
+    "id": "2c0efd59-751b-414d-af8b-4bb49e1fbca9",
+    "title": "Rise of the Fallen",
+    "author": "Nathan Harris",
+    "year": 2018,
+    "genre": "Fantasy"
+  },
+  {
+    "id": "fb5eb72e-27e4-401b-b20a-877576b8de55",
+    "title": "Test",
+    "author": "Test",
+    "year": 2018,
+    "genre": "Test"
+  },
+  {
+    "id": "82665ef0-60a5-4d17-bfef-aae4a353bc56",
+    "title": "Tests",
+    "author": "Test",
+    "year": 5,
+    "genre": "Non-Fiction"
+  },
+  {
+    "id": "4ce8fc4c-dad4-49e4-8fbf-6d00c4f3ad35",
+    "title": "Tes",
+    "author": "Test",
+    "year": 2,
+    "genre": "Non-Fiction"
+  },
+  {
+    "id": "39b0241b-e28d-4304-9c7b-fef5580c871a",
+    "title": "asd",
+    "author": "asdf",
+    "year": 2,
+    "genre": "Fiction"
+  }
+]
