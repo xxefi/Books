@@ -1,3 +1,4 @@
+"use client";
 import {
   TextField,
   FormControl,
@@ -7,7 +8,7 @@ import {
   Button,
   CircularProgress,
 } from "@mui/material";
-import { BookFormProps } from "../interfaces/bookform.props";
+import { BookFormProps } from "../interfaces/props/bookform.props";
 
 export const BookForm = ({
   formData,

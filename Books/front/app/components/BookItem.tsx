@@ -1,7 +1,8 @@
+"use client";
 import { Button, ListItem, ListItemText } from "@mui/material";
-import { BookItemProps } from "../interfaces/bookitem.props";
+import { BookItemProps } from "../interfaces/props/bookitem.props";
 
-export function BookItem({ book, onDelete, disabled }: BookItemProps) {
+export const BookItem = ({ book, onDelete, disabled }: BookItemProps) => {
   return (
     <ListItem
       sx={{
@@ -25,4 +26,4 @@ export function BookItem({ book, onDelete, disabled }: BookItemProps) {
       </Button>
     </ListItem>
   );
-}
+};

@@ -1,7 +1,8 @@
+"use client";
 import { Card, CardContent, Typography } from "@mui/material";
-import { BookCardProps } from "../interfaces/bookcard.props";
+import { BookCardProps } from "../interfaces/props/bookcard.props";
 
-export default function BookCard({ book }: BookCardProps) {
+export const BookCard = ({ book }: BookCardProps) => {
   return (
     <Card
       sx={{
@@ -62,4 +63,4 @@ export default function BookCard({ book }: BookCardProps) {
       </CardContent>
     </Card>
   );
-}
+};

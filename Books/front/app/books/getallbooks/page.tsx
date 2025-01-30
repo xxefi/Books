@@ -2,7 +2,7 @@
 
 import { Box, CircularProgress, Typography, Alert, Grid } from "@mui/material";
 import { useBooks } from "@/app/hooks/useBooks";
-import BookCard from "@/app/components/BookCard";
+import { BookCard } from "@/app/components/BookCard";
 
 export default function GetAllBooks() {
   const { books, loading, error } = useBooks();

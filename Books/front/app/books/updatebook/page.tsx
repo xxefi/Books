@@ -1,34 +1,36 @@
 "use client";
 
-import {
-  Box,
-  CircularProgress,
-  SelectChangeEvent,
-  Typography,
-} from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { useBooks } from "@/app/hooks/useBooks";
 import { useUpdateBook } from "@/app/hooks/useUpdateBook";
-import SelectBook from "@/app/components/SelectBook";
-import { BookForm } from "@/app/components/BookForm";
+import { SelectBook } from "@/app/components/SelectBook";
 import { ChangeEvent, FormEvent } from "react";
+import { BookUpdateForm } from "@/app/components/BookUpdateForm";
+import { Book } from "@/app/models/book";
 
 export default function UpdateBook() {
-  const { books, selectedBook, handleSelectBook, loading, error } = useBooks();
+  const {
+    books,
+    selectedBook,
+    handleSelectBook,
+    loading,
+    error,
+    success,
+    warning,
+  } = useBooks();
   const {
     loading: updateLoading,
     error: updateError,
-    updatedBook,
-    warning,
+    warning: updateWarning,
+    success: updateSuccess,
+    updatedFields,
     handleUpdate,
+    handleFieldChange,
   } = useUpdateBook(selectedBook);
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement> | SelectChangeEvent<string>
-  ) => {
-    e.preventDefault();
-    if (selectedBook) {
-      handleSelectBook(e.target.value);
-    }
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    handleFieldChange(name as keyof Book, value);
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -53,17 +55,23 @@ export default function UpdateBook() {
         <Typography variant="h6">Books not found</Typography>
       )}
 
-      <SelectBook handleSelectBook={handleSelectBook} />
+      <SelectBook
+        books={books}
+        selectedBook={selectedBook}
+        loading={loading}
+        handleSelectBook={handleSelectBook}
+      />
 
       {selectedBook && (
-        <BookForm
+        <BookUpdateForm
           selectedBook={selectedBook}
+          updatedFields={updatedFields}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          loading={updateLoading}
-          warning={warning}
+          loading={updateLoading || loading}
+          warning={updateWarning || warning}
           error={updateError || error}
-          updatedBook={updatedBook}
+          success={updateSuccess || success}
         />
       )}
     </Box>

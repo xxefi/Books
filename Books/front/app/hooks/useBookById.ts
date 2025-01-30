@@ -1,33 +1,23 @@
-import { useState } from "react";
-import { getBookById } from "@/app/services/bookService";
-import { Book } from "@/app/models/book";
-import { AxiosError } from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { useEffect } from "react";
+import { fetchBookById } from "../redux/actions/bookActions";
 
-export function useBookById() {
-  const [book, setBook] = useState<Book | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+export function useBookById(bookId: string) {
+  //const [book, setBook] = useState<Book | null>(null);
+  //const [loading, setLoading] = useState<boolean>(false);
+  //const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
 
-  const fetchBookById = async (bookId: string) => {
-    setLoading(true);
-    setError(null);
-    setBook(null);
+  const { book, loading, error } = useSelector(
+    (state: RootState) => state.book
+  );
 
-    try {
-      const data = await getBookById(bookId);
-      setBook(data);
-    } catch (e: unknown) {
-      if (e instanceof AxiosError && e.response?.data?.message) {
-        setError(e.response.data.message);
-      } else if (e instanceof Error) {
-        setError(e.message);
-      } else {
-        setError("");
-      }
-    } finally {
-      setLoading(false);
+  useEffect(() => {
+    if (bookId) {
+      dispatch(fetchBookById(bookId));
     }
-  };
+  }, [bookId, dispatch]);
 
-  return { book, loading, error, fetchBookById };
+  return { book, loading, error };
 }

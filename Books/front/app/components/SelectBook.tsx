@@ -1,18 +1,18 @@
+"use client";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import { useBooks } from "@/app/hooks/useBooks";
+import { SelectBookProps } from "../interfaces/props/selectbook.props";
 
-const SelectBook = ({
+export const SelectBook = ({
+  books,
+  selectedBook,
   handleSelectBook,
-}: {
-  handleSelectBook: (bookId: string) => void;
-}) => {
-  const { books, selectedBook, loading } = useBooks();
-
+  loading,
+}: SelectBookProps) => {
   return (
     <FormControl fullWidth sx={{ marginBottom: 2 }}>
       <InputLabel>Select book</InputLabel>
       <Select
-        value={selectedBook?.id || ""}
+        value={selectedBook ? selectedBook.id : ""}
         onChange={(e) => handleSelectBook(e.target.value)}
         label="Select book"
         disabled={loading}
@@ -29,5 +29,3 @@ const SelectBook = ({
     </FormControl>
   );
 };
-
-export default SelectBook;

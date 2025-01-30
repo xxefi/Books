@@ -1,24 +1,18 @@
-import { TextField, Button, Alert } from "@mui/material";
-import { ChangeEvent, FormEvent } from "react";
-import { Book } from "@/app/models/book";
+"use client";
+import { TextField, Button } from "@mui/material";
+import { AlertMessage } from "./AlertMessage";
+import { BookUpdateFormProps } from "../interfaces/props/bookupdateform.props";
 
 export const BookUpdateForm = ({
   selectedBook,
+  updatedFields,
   handleChange,
   handleSubmit,
   loading,
   warning,
+  success,
   error,
-  updatedBook,
-}: {
-  selectedBook: Book;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: FormEvent) => void;
-  loading: boolean;
-  warning: string | null;
-  error: string | null;
-  updatedBook: Book | null;
-}) => {
+}: BookUpdateFormProps) => {
   return (
     <>
       <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
@@ -26,7 +20,7 @@ export const BookUpdateForm = ({
           label="Title"
           variant="outlined"
           fullWidth
-          value={selectedBook.title}
+          value={updatedFields.title ?? selectedBook.title}
           onChange={handleChange}
           name="title"
           sx={{ marginBottom: 2 }}
@@ -35,7 +29,7 @@ export const BookUpdateForm = ({
           label="Author"
           variant="outlined"
           fullWidth
-          value={selectedBook.author}
+          value={updatedFields.author ?? selectedBook.author}
           onChange={handleChange}
           name="author"
           sx={{ marginBottom: 2 }}
@@ -44,7 +38,7 @@ export const BookUpdateForm = ({
           label="Year"
           variant="outlined"
           fullWidth
-          value={selectedBook.year}
+          value={updatedFields.year ?? selectedBook.year}
           onChange={handleChange}
           name="year"
           sx={{ marginBottom: 2 }}
@@ -53,7 +47,7 @@ export const BookUpdateForm = ({
           label="Genre"
           variant="outlined"
           fullWidth
-          value={selectedBook.genre}
+          value={updatedFields.genre ?? selectedBook.genre}
           onChange={handleChange}
           name="genre"
           sx={{ marginBottom: 2 }}
@@ -69,23 +63,9 @@ export const BookUpdateForm = ({
         </Button>
       </form>
 
-      {warning && (
-        <Alert severity="warning" sx={{ marginTop: 2 }}>
-          {warning}
-        </Alert>
-      )}
-
-      {error && (
-        <Alert severity="error" sx={{ marginTop: 2 }}>
-          {error}
-        </Alert>
-      )}
-
-      {updatedBook && (
-        <Alert severity="success" sx={{ marginTop: 2 }}>
-          Book updated successfully
-        </Alert>
-      )}
+      {warning && <AlertMessage severity="warning" message={warning} />}
+      {error && <AlertMessage severity="error" message={error} />}
+      {success && <AlertMessage severity="success" message={success} />}
     </>
   );
 };

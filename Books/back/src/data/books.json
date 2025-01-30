@@ -1,82 +1,5 @@
 [
   {
-    "id": "3400cda2-aa5c-4154-b711-2ee6a43bf35e",
-    "title": "Beneath the Waves",
-    "author": "Liam O'Connor",
-    "year": 2003,
-    "genre": "Adventure"
-  },
-  {
-    "id": "c789682e-20a6-4914-bdf2-07796bace240",
-    "title": "Silent Echo",
-    "author": "Ella Johnson",
-    "year": 2020,
-    "genre": "Horror"
-  },
-  {
-    "id": "e4cfe451-1716-416a-8e53-c2c1f12395d0",
-    "title": "Stars Beyond the Sky",
-    "author": "Olivia Green",
-    "year": 2018,
-    "genre": "Fantasy"
-  },
-  {
-    "id": "0572d7f0-9b86-4bbc-9b1f-f784522d83c5",
-    "title": "The Red Horizon",
-    "author": "James Walker",
-    "year": 2015,
-    "genre": "Action"
-  },
-  {
-    "id": "826ad9f7-0744-43ee-88ff-9fffb4905a05",
-    "title": "Into the Abyss",
-    "author": "Charlotte King",
-    "year": 2011,
-    "genre": "Thriller"
-  },
-  {
-    "id": "305389b6-32a9-4cd4-a4a0-b0b08aa91370",
-    "title": "Whispers in the Dark",
-    "author": "David Harris",
-    "year": 2008,
-    "genre": "Horrora"
-  },
-  {
-    "id": "ea0a7aa9-35d8-4b74-90be-0f859795efc0",
-    "title": "A Journey to the Starsa",
-    "author": "Isabella White",
-    "year": 2021,
-    "genre": "Sci-Fi"
-  },
-  {
-    "id": "36caf734-94c5-4f8e-a65b-30b769cc8420",
-    "title": "The Crystal Labyrinth",
-    "author": "Sarah Turner",
-    "year": "2020",
-    "genre": "Fantasy"
-  },
-  {
-    "id": "470c6f84-d161-45da-9110-70197c4d2a13",
-    "title": "The Edge of Time",
-    "author": "Benjamin Scott",
-    "year": 2017,
-    "genre": "Action"
-  },
-  {
-    "id": "1b61bf56-04e6-47c2-acc5-65e48d58653b",
-    "title": "Moonlit Nights",
-    "author": "Lucas Mitchell",
-    "year": 2001,
-    "genre": "Romance"
-  },
-  {
-    "id": "9bd607d0-70e5-4be6-bf63-d708a604453b",
-    "title": "Secrets of the Universe",
-    "author": "Harper Evans",
-    "year": 2023,
-    "genre": "Sci-Fi"
-  },
-  {
     "id": "2317b511-0270-4743-900f-e9ed5707281b",
     "title": "Echoes of Silence",
     "author": "Amelia Moore",
@@ -88,7 +11,7 @@
     "title": "Stormy Nights",
     "author": "Ethan Taylor",
     "year": 2007,
-    "genre": "Romance"
+    "genre": "Romances"
   },
   {
     "id": "c2e43b06-630f-434d-80d7-a6118ab83676",
@@ -182,10 +105,10 @@
     "genre": "Non-Fiction"
   },
   {
-    "id": "39b0241b-e28d-4304-9c7b-fef5580c871a",
-    "title": "asd",
-    "author": "asdf",
-    "year": 2,
+    "id": "56fd8ee1-8752-4a01-915e-610bd1743c07",
+    "title": "sdsdg",
+    "author": "dsfgdfsg",
+    "year": 4,
     "genre": "Fiction"
   }
 ]

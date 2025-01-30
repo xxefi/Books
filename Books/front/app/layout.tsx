@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./theme/theme";
-import Navbar from "./components/Navbar";
-import ClientProvider from "./components/ClientProvider";
+import { Navbar } from "./components/Navbar";
+import { StoreProvider } from "./redux/providers/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Books manager",
@@ -18,11 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ClientProvider>
+          <StoreProvider>
+            <CssBaseline />
             <Navbar />
             {children}
-          </ClientProvider>
+          </StoreProvider>
         </ThemeProvider>
       </body>
     </html>

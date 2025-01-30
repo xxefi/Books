@@ -1,26 +1,26 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState, FormEvent } from "react";
 import {
   Box,
   Button,
   TextField,
   CircularProgress,
-  Alert,
   Typography,
 } from "@mui/material";
+import { BookDetailsCard } from "@/app/components/BookDetailsCard";
+import { AlertMessage } from "@/app/components/AlertMessage";
 import { useBookById } from "@/app/hooks/useBookById";
-import BookDetailsCard from "@/app/components/BookDetailsCard";
 
 export default function GetBookById() {
   const [bookId, setBookId] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
-  const { book, loading, error, fetchBookById } = useBookById();
+
+  const { book, loading, error } = useBookById(bookId);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    await fetchBookById(bookId);
   };
 
   return (
@@ -93,18 +93,7 @@ export default function GetBookById() {
         </Box>
       )}
 
-      {error && (
-        <Alert
-          severity="error"
-          sx={{
-            marginBottom: 3,
-            backgroundColor: "#ffebee",
-            color: "#d32f2f",
-          }}
-        >
-          {error}
-        </Alert>
-      )}
+      {error && <AlertMessage severity="error" message={error} />}
 
       {!loading && !error && submitted && !book && (
         <Typography

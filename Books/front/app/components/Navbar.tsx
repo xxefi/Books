@@ -4,7 +4,7 @@ import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function Navbar() {
+export const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -76,4 +76,4 @@ export default function Navbar() {
       </AppBar>
     </Box>
   );
-}
+};

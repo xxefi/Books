@@ -1,13 +1,17 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import { useBookForm } from "@/app/hooks/useBookForm";
+import { useAddBookForm } from "@/app/hooks/useAddBookForm";
 import { AlertMessage } from "@/app/components/AlertMessage";
 import { BookForm } from "@/app/components/BookForm";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
 
 export default function AddBook() {
-  const { formData, loading, error, success, handleChange, onSubmit } =
-    useBookForm();
+  const { loading, error, success } = useSelector(
+    (state: RootState) => state.book
+  );
+  const { formData, handleChange, onSubmit } = useAddBookForm();
 
   return (
     <Box
@@ -45,9 +49,7 @@ export default function AddBook() {
           Add New Book
         </Typography>
 
-        {success && (
-          <AlertMessage message="Book added successfully" severity="success" />
-        )}
+        {success && <AlertMessage message={success} severity="success" />}
         {error && <AlertMessage message={error} severity="error" />}
 
         <BookForm

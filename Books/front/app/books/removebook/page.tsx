@@ -1,11 +1,12 @@
 "use client";
 
-import { Box, Typography, CircularProgress, Alert, List } from "@mui/material";
-import { useBooks } from "@/app/hooks/useBooks";
+import { Box, Typography, CircularProgress, List } from "@mui/material";
+import { useRemoveBooks } from "@/app/hooks/useRemoveBooks";
 import { BookItem } from "@/app/components/BookItem";
+import { AlertMessage } from "@/app/components/AlertMessage";
 
 export default function RemoveBook() {
-  const { books, loading, error, success, handleDelete } = useBooks();
+  const { books, loading, error, success, handleDelete } = useRemoveBooks();
 
   return (
     <Box sx={{ padding: 3 }}>
@@ -20,17 +21,9 @@ export default function RemoveBook() {
         <CircularProgress sx={{ display: "block", margin: "20px auto" }} />
       )}
 
-      {error && (
-        <Alert severity="error" sx={{ marginBottom: 2 }}>
-          {error}
-        </Alert>
-      )}
+      {error && <AlertMessage severity="error" message={error} />}
 
-      {success && (
-        <Alert severity="success" sx={{ marginBottom: 2 }}>
-          {success}
-        </Alert>
-      )}
+      {success && <AlertMessage severity="success" message={success} />}
 
       {!loading && !error && books.length === 0 && (
         <Typography variant="h6">No books found</Typography>
