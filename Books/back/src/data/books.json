@@ -1,114 +1,93 @@
 [
   {
-    "id": "2317b511-0270-4743-900f-e9ed5707281b",
-    "title": "Echoes of Silence",
-    "author": "Amelia Moore",
-    "year": 2006,
-    "genre": "Mystery"
-  },
-  {
-    "id": "eae5c88e-a7a6-4ae7-bc2e-d67f4342421f",
-    "title": "Stormy Nights",
-    "author": "Ethan Taylor",
-    "year": 2007,
-    "genre": "Romances"
-  },
-  {
-    "id": "c2e43b06-630f-434d-80d7-a6118ab83676",
-    "title": "The Forgotten Legend",
-    "author": "Zoe Davis",
-    "year": 1998,
-    "genre": "Fantasy"
-  },
-  {
-    "id": "57c4a0de-b52b-40d9-be24-81f3c7351c39",
-    "title": "The Silent Witness",
-    "author": "Charlotte Lee",
-    "year": 2016,
-    "genre": "Mystery"
-  },
-  {
-    "id": "3a0ea5e1-ebaa-409f-bc88-f9d30dfa8e4e",
-    "title": "Journey Through Fire",
-    "author": "Mia Brown",
-    "year": 2004,
-    "genre": "Adventure"
-  },
-  {
-    "id": "5f10c004-b393-44a7-b891-844824d548cf",
-    "title": "Through the Mist",
-    "author": "Leo Carter",
-    "year": 2000,
-    "genre": "Sci-Fi"
-  },
-  {
-    "id": "e783610d-e76b-4867-8024-4e5aa6578ecf",
-    "title": "City of Shadows",
-    "author": "Lily Adams",
-    "year": 1993,
-    "genre": "Action"
-  },
-  {
-    "id": "295b5531-6184-4371-b7a7-2c5fa8d76319",
-    "title": "Beneath the Surface",
-    "author": "Ryan Miller",
-    "year": 2022,
-    "genre": "Thriller"
-  },
-  {
-    "id": "01cca346-a54f-4dd3-a5f5-9cc9f03f5343",
-    "title": "Whispers of the Forgotten",
-    "author": "Sophia Clark",
-    "year": 2010,
-    "genre": "Mystery"
-  },
-  {
-    "id": "bbe2a0a2-4ece-482a-8147-3d2a8f047901",
-    "title": "The Last Sunrise",
-    "author": "Isabella White",
-    "year": 2014,
-    "genre": "Fantasy"
-  },
-  {
-    "id": "ba47bef9-efd2-421e-a7b6-e8ca284ab294",
-    "title": "The Eternal Night",
-    "author": "Jackson King",
-    "year": 2005,
-    "genre": "Thriller"
-  },
-  {
     "id": "2c0efd59-751b-414d-af8b-4bb49e1fbca9",
     "title": "Rise of the Fallen",
-    "author": "Nathan Harris",
+    "author": "Nathan Harriss",
     "year": 2018,
-    "genre": "Fantasy"
+    "genre": "Fantasyfa"
   },
   {
     "id": "fb5eb72e-27e4-401b-b20a-877576b8de55",
     "title": "Test",
     "author": "Test",
     "year": 2018,
-    "genre": "Test"
+    "genre": "Testa"
   },
   {
-    "id": "82665ef0-60a5-4d17-bfef-aae4a353bc56",
-    "title": "Tests",
+    "id": "c676e75b-4e70-4132-8b45-c778abe7d1d9",
+    "title": "Testf",
     "author": "Test",
-    "year": 5,
-    "genre": "Non-Fiction"
-  },
-  {
-    "id": "4ce8fc4c-dad4-49e4-8fbf-6d00c4f3ad35",
-    "title": "Tes",
-    "author": "Test",
-    "year": 2,
-    "genre": "Non-Fiction"
-  },
-  {
-    "id": "56fd8ee1-8752-4a01-915e-610bd1743c07",
-    "title": "sdsdg",
-    "author": "dsfgdfsg",
     "year": 4,
+    "genre": "Non-Fiction"
+  },
+  {
+    "id": "6b018777-c572-407e-a965-d8e6c3bd412b",
+    "title": "A123",
+    "author": "A123",
+    "year": 4,
+    "genre": "Science Fiction"
+  },
+  {
+    "id": "30cadee0-0ee3-4811-a261-0aacf459e3a9",
+    "title": "sdf",
+    "author": "sdf",
+    "year": 2,
+    "genre": "Fiction"
+  },
+  {
+    "id": "f9a71fd5-c3d4-4e67-8552-9c81f2d5b058",
+    "title": "The Silent Whisper",
+    "author": "Amanda Wolf",
+    "year": 2021,
+    "genre": "Thriller"
+  },
+  {
+    "id": "d6e16e09-6a9e-4bb4-bf89-1b7201325867",
+    "title": "Echoes of Time",
+    "author": "Oliver Grant",
+    "year": 1999,
+    "genre": "Historical Fiction"
+  },
+  {
+    "id": "3e8b3c4d-b7f0-4bc2-b9bc-ada6b2ca7564",
+    "title": "Beyond the Horizon",
+    "author": "Evelyn Rose",
+    "year": 2015,
+    "genre": "Adventure"
+  },
+  {
+    "id": "7a684c73-3db6-44d9-8e24-b8fcaf4713c5",
+    "title": "The Code of Shadows",
+    "author": "Alexis Black",
+    "year": 2018,
+    "genre": "Mystery"
+  },
+  {
+    "id": "de0c5b99-8f85-4205-b1bb-9b2a3f9cd32d",
+    "title": "Whispers in the Dark",
+    "author": "Lena Morrow",
+    "year": 2022,
+    "genre": "Horror"
+  },
+  {
+    "id": "9e4105e7-9f56-4646-a482-25471fa0cf07",
+    "title": "The Ocean's Heart",
+    "author": "Cameron Steele",
+    "year": 2019,
+    "genre": "Romance"
+  },
+  {
+    "id": "9d553fea-40e6-4ebb-a76f-03a8daa0eccb",
+    "title": "A",
+    "author": "A",
+    "year": 0,
+    "genre": "Non-Fiction"
+  },
+  {
+    "id": "65233c60-78e4-4b6d-9347-9e8f73df39f3",
+    "title": "Ab",
+    "author": "A",
+    "year": 1,
     "genre": "Fiction"
   }
 ]

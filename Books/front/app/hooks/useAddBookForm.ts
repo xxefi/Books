@@ -1,22 +1,22 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 import { Book } from "@/app/models/book";
 import { SelectChangeEvent } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { addBookAction } from "../redux/actions/addBookAction";
-import { AppDispatch } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { addBookAction } from "../redux/actions/bookActions";
+import { setUpdatedFields } from "../redux/slices/bookSlice";
 
 export const useAddBookForm = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const [formData, setFormData] = useState<Book>({
+  const { loading, error, success, updatedFields } = useSelector(
+    (state: RootState) => state.book
+  );
+  const initialBookData: Book = {
     title: "",
     author: "",
     year: 0,
     genre: "",
-  });
-
-  //const [loading, setLoading] = useState<boolean>(false);
-  //const [error, setError] = useState<string | null>(null);
-  //const [success, setSuccess] = useState<string | null>(null);
+  };
 
   const handleChange = (
     e:
@@ -25,20 +25,29 @@ export const useAddBookForm = () => {
         >
       | SelectChangeEvent<string>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name as string]: e.target.value,
-    });
+    dispatch(
+      setUpdatedFields({
+        [e.target.name as string]: e.target.value,
+      })
+    );
   };
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(addBookAction(formData));
+    dispatch(
+      addBookAction({
+        ...initialBookData,
+        ...updatedFields,
+      })
+    );
   };
 
   return {
-    formData,
+    formData: { ...initialBookData, ...updatedFields },
     handleChange,
     onSubmit,
+    loading,
+    error,
+    success,
   };
 };

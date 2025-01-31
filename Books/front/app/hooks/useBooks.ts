@@ -1,49 +1,32 @@
-import { useState, useEffect } from "react";
-import { getAllBooks } from "@/app/services/bookService";
-import { Book } from "@/app/models/book";
-import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { fetchBooks } from "../redux/actions/bookActions";
+import { Book } from "../models/book";
+import { selectBook } from "../redux/slices/bookSlice";
 
 export const useBooks = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
-  const [warning, setWarning] = useState<string | null>(null);
-
-  const fetchBooks = async () => {
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-    setWarning(null);
-    try {
-      const data = await getAllBooks();
-      setBooks(data);
-    } catch (e: unknown) {
-      if (axios.isAxiosError(e)) {
-        setError(e.response?.data?.message || "An unknown error occurred");
-      } else if (e instanceof Error) {
-        setError(e.message);
-      } else {
-        setError("An unknown error occurred");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSelectBook = (bookId: string) => {
-    const book = books.find((b) => b.id === bookId);
-    setSelectedBook(book || null);
-  };
+  //const [books, setBooks] = useState<Book[]>([]);
+  //const [loading, setLoading] = useState(false);
+  //const [error, setError] = useState<string | null>(null);
+  //const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  //const [success, setSuccess] = useState<string | null>(null);
+  //const [warning, setWarning] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const { books, loading, error, selectedBook, success, warning } = useSelector(
+    (state: RootState) => state.book
+  );
 
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  const handleSelectBook = (book: Book | null) => {
+    dispatch(selectBook(book));
+  };
 
   return {
     books,
-    setBooks,
     loading,
     error,
     selectedBook,

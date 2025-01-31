@@ -56,7 +56,7 @@ export const BookUpdateForm = ({
           type="submit"
           variant="contained"
           color="primary"
-          sx={{ textTransform: "none", background: "black" }}
+          sx={{ textTransform: "none", background: "black", width: "100%" }}
           disabled={loading}
         >
           Update book

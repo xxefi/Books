@@ -11,7 +11,6 @@ export const Navbar = () => {
   const pages = [
     { label: "Add Book", path: "/books/addbook" },
     { label: "Get All Books", path: "/books/getallbooks" },
-    { label: "Get Book By ID", path: "/books/getbookbyid" },
     { label: "Remove Book", path: "/books/removebook" },
     { label: "Update Book", path: "/books/updatebook" },
   ];

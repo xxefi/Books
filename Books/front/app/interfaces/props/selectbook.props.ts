@@ -3,6 +3,6 @@ import { Book } from "@/app/models/book";
 export interface SelectBookProps {
   books: Book[];
   selectedBook: Book | null;
-  handleSelectBook: (bookId: string) => void;
+  handleSelectBook: (book: Book | null) => void;
   loading: boolean;
 }

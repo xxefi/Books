@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography, Paper } from "@mui/material";
 import { useBooks } from "@/app/hooks/useBooks";
 import { useUpdateBook } from "@/app/hooks/useUpdateBook";
 import { SelectBook } from "@/app/components/SelectBook";
@@ -39,28 +39,53 @@ export default function UpdateBook() {
   };
 
   return (
-    <Box sx={{ padding: 3 }}>
+    <Box
+      sx={{
+        padding: 4,
+        maxWidth: 600,
+        margin: "auto",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <Typography
         variant="h4"
-        sx={{ marginBottom: 2, fontWeight: "bold", textAlign: "center" }}
+        sx={{
+          marginBottom: 3,
+          fontWeight: "bold",
+          textAlign: "center",
+          color: "#333",
+        }}
       >
-        Update book
+        Update Book
       </Typography>
 
-      {loading && (
-        <CircularProgress sx={{ display: "block", margin: "0 auto" }} />
-      )}
+      {loading && <CircularProgress sx={{ marginBottom: 3 }} />}
 
       {!loading && !error && books.length === 0 && (
-        <Typography variant="h6">Books not found</Typography>
+        <Typography variant="h6" sx={{ color: "gray" }}>
+          Books not found
+        </Typography>
       )}
 
-      <SelectBook
-        books={books}
-        selectedBook={selectedBook}
-        loading={loading}
-        handleSelectBook={handleSelectBook}
-      />
+      <Paper
+        elevation={6}
+        sx={{
+          padding: 3,
+          borderRadius: 4,
+          width: "100%",
+          backgroundColor: "#f9f9f9",
+          marginBottom: 3,
+        }}
+      >
+        <SelectBook
+          books={books}
+          selectedBook={selectedBook}
+          loading={loading}
+          handleSelectBook={handleSelectBook}
+        />
+      </Paper>
 
       {selectedBook && (
         <BookUpdateForm

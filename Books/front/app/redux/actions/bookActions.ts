@@ -1,44 +1,93 @@
 import { Dispatch } from "redux";
-import { setLoading, setError, setBooks } from "../slices/bookSlice";
-import { getAllBooks, getBookById } from "@/app/services/bookService";
-import { AxiosError } from "axios";
+import {
+  setLoading,
+  setError,
+  setBooks,
+  selectBook,
+  setSuccess,
+  setWarning,
+} from "../slices/bookSlice";
+import { addBook, deleteBook, getAllBooks } from "@/app/services/bookService";
+import { ThunkAction } from "redux-thunk";
+import { RootState } from "../store";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { Book } from "@/app/models/book";
 
-export const fetchBooks = () => {
+export const fetchBooks = (): ThunkAction<
+  void,
+  RootState,
+  unknown,
+  PayloadAction<Book[]>
+> => {
   return async (dispatch: Dispatch) => {
     dispatch(setLoading());
     try {
       const books = await getAllBooks();
       dispatch(setBooks(books));
     } catch (e: unknown) {
-      if (e instanceof AxiosError) {
-        dispatch(
-          setError(e.response?.data?.message || "Failed to fetch books")
-        );
-      } else if (e instanceof Error) {
-        dispatch(setError(e.message));
-      } else {
-        dispatch(setError("An unknown error occurred"));
-      }
+      dispatch(setError(e instanceof Error ? e.message : ""));
     }
   };
 };
 
-export const fetchBookById = (bookId: string) => {
+export const addBookAction = (
+  bookData: Book
+): ThunkAction<void, RootState, unknown, PayloadAction<Book>> => {
   return async (dispatch: Dispatch) => {
     dispatch(setLoading());
     try {
-      const book = await getBookById(bookId);
-      dispatch(setBooks([book]));
+      const newBook = await addBook(bookData);
+      dispatch(setBooks([newBook]));
+      dispatch(setSuccess("Book added"));
     } catch (e: unknown) {
-      if (e instanceof AxiosError) {
-        dispatch(
-          setError(e.response?.data?.message || "Failed to fetch book by ID")
-        );
-      } else if (e instanceof Error) {
-        dispatch(setError(e.message));
-      } else {
-        dispatch(setError("An unknown error occurred"));
-      }
+      dispatch(setError(e instanceof Error ? e.message : ""));
     }
+  };
+};
+
+export const updateBookAction = (
+  bookId: string,
+  bookData: Partial<Book>
+): ThunkAction<void, RootState, unknown, PayloadAction<Book>> => {
+  return async (dispatch: Dispatch, getState) => {
+    const selectedBook = getState().book.books.find((b) => b.id === bookId);
+
+    if (!selectedBook) {
+      dispatch(setWarning("Book not found"));
+      return;
+    }
+
+    const hasChanges = Object.keys(bookData).some(
+      (key) => bookData[key as keyof Book] !== selectedBook[key as keyof Book]
+    );
+
+    if (!hasChanges) {
+      dispatch(setWarning("No changes detected"));
+      return;
+    }
+  };
+};
+
+export const removeBookAction = (
+  bookId: string
+): ThunkAction<void, RootState, unknown, PayloadAction<string>> => {
+  return async (dispatch: Dispatch, getState) => {
+    dispatch(setLoading());
+    try {
+      await deleteBook(bookId);
+      const { books } = getState().book;
+      dispatch(setBooks(books.filter((b) => b.id !== bookId)));
+      dispatch(setSuccess("Book deleted"));
+    } catch (e: unknown) {
+      dispatch(setError(e instanceof Error ? e.message : ""));
+    }
+  };
+};
+
+export const selectBookAction = (
+  book: Book | null
+): ThunkAction<void, RootState, unknown, PayloadAction<Book | null>> => {
+  return async (dispatch: Dispatch) => {
+    dispatch(selectBook(book));
   };
 };

@@ -1,4 +1,4 @@
-import { Book } from "../models/book";
+import { Book } from "@/app/models/book";
 
 export interface BookItemProps {
   book: Book;

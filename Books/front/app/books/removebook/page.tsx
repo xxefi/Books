@@ -2,12 +2,11 @@
 
 import { Box, Typography, CircularProgress, List } from "@mui/material";
 import { useRemoveBooks } from "@/app/hooks/useRemoveBooks";
-import { BookItem } from "@/app/components/BookItem";
+import { BookRemoveItem } from "@/app/components/BookRemoveItem";
 import { AlertMessage } from "@/app/components/AlertMessage";
 
 export default function RemoveBook() {
   const { books, loading, error, success, handleDelete } = useRemoveBooks();
-
   return (
     <Box sx={{ padding: 3 }}>
       <Typography
@@ -22,7 +21,6 @@ export default function RemoveBook() {
       )}
 
       {error && <AlertMessage severity="error" message={error} />}
-
       {success && <AlertMessage severity="success" message={success} />}
 
       {!loading && !error && books.length === 0 && (
@@ -32,7 +30,7 @@ export default function RemoveBook() {
       {!loading && !error && books.length > 0 && (
         <List>
           {books.map((book) => (
-            <BookItem
+            <BookRemoveItem
               key={book.id}
               book={book}
               onDelete={handleDelete}

@@ -1,4 +1,5 @@
 export interface AlertMessageProps {
   message: string;
-  severity: "error" | "success" | "warning";
+  severity: "error" | "warning" | "info" | "success";
+  size?: "small" | "medium" | "large";
 }

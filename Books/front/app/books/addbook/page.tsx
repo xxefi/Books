@@ -3,15 +3,11 @@
 import { Box, Typography } from "@mui/material";
 import { useAddBookForm } from "@/app/hooks/useAddBookForm";
 import { AlertMessage } from "@/app/components/AlertMessage";
-import { BookForm } from "@/app/components/BookForm";
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/redux/store";
+import { BookAddForm } from "@/app/components/BookAddForm";
 
 export default function AddBook() {
-  const { loading, error, success } = useSelector(
-    (state: RootState) => state.book
-  );
-  const { formData, handleChange, onSubmit } = useAddBookForm();
+  const { formData, handleChange, onSubmit, loading, error, success } =
+    useAddBookForm();
 
   return (
     <Box
@@ -21,7 +17,7 @@ export default function AddBook() {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #1e3c72, #2a5298)",
+        background: "linear-gradient(135deg, #4e73df, #1e3c72)",
         color: "#fff",
         padding: 3,
       }}
@@ -52,7 +48,7 @@ export default function AddBook() {
         {success && <AlertMessage message={success} severity="success" />}
         {error && <AlertMessage message={error} severity="error" />}
 
-        <BookForm
+        <BookAddForm
           formData={formData}
           loading={loading}
           handleChange={handleChange}

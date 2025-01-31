@@ -1,7 +1,16 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Typography, Button, Box, Container } from "@mui/material";
+import {
+  Typography,
+  Button,
+  Container,
+  Paper,
+  IconButton,
+} from "@mui/material";
+import { LibraryBooks, ArrowForward } from "@mui/icons-material";
+import { motion } from "framer-motion";
+import "@fontsource/poppins";
 
 export default function Home() {
   const router = useRouter();
@@ -17,47 +26,87 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
-        background: "linear-gradient(135deg, #1e3c72, #2a5298)",
+        background: "linear-gradient(135deg, #4e73df, #1e3c72)",
         color: "#fff",
         textAlign: "center",
         padding: "20px",
+        fontFamily: "Poppins, sans-serif",
       }}
     >
       <Container maxWidth="sm">
-        <Box
-          sx={{
-            background: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "16px",
-            padding: "30px",
-            boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.3)",
-          }}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
         >
-          <Typography variant="h3" component="h1" gutterBottom>
-            Welcome to the Book Manager!
-          </Typography>
-          <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-            Easily manage your book collection with our intuitive interface.
-            Add, update, or delete books with just a few clicks.
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
+          <Paper
+            elevation={8}
             sx={{
-              backgroundColor: "#ff9800",
-              color: "#fff",
-              fontWeight: "bold",
-              textTransform: "none",
-              padding: "10px 20px",
-              "&:hover": {
-                backgroundColor: "#e68900",
-              },
+              padding: "40px",
+              borderRadius: "24px",
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(15px)",
+              boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.5)",
             }}
-            onClick={handleGetStarted}
           >
-            Get Started
-          </Button>
-        </Box>
+            <IconButton
+              sx={{
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                color: "#fff",
+                marginBottom: "16px",
+                "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
+              }}
+            >
+              <LibraryBooks fontSize="large" />
+            </IconButton>
+            <Typography
+              variant="h3"
+              component="h1"
+              gutterBottom
+              sx={{
+                color: "white",
+                textShadow: "3px 3px 6px rgba(0, 0, 0, 0.5)",
+                fontWeight: 600,
+              }}
+            >
+              Welcome to Book Manager!
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                marginBottom: "24px",
+                color: "white",
+                fontSize: "1.1rem",
+                fontWeight: 400,
+              }}
+            >
+              Organize and manage your book collection effortlessly. Add,
+              update, or remove books with ease.
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<ArrowForward />}
+              sx={{
+                background: "#ff6f61",
+                color: "white",
+                fontWeight: "bold",
+                textTransform: "none",
+                padding: "14px 28px",
+                borderRadius: "8px",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                transition: "0.3s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  backgroundColor: "#ff3e2d",
+                },
+              }}
+              onClick={handleGetStarted}
+            >
+              Get Started
+            </Button>
+          </Paper>
+        </motion.div>
       </Container>
     </main>
   );

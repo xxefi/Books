@@ -1,50 +1,28 @@
-import { useState } from "react";
-import { deleteBook } from "@/app/services/bookService";
-import { Book } from "@/app/models/book";
-import axios from "axios";
-import { useBooks } from "../hooks/useBooks";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { useEffect } from "react";
+import { fetchBooks, removeBookAction } from "../redux/actions/bookActions";
 
 export const useRemoveBooks = () => {
-  const { books, setBooks } = useBooks();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleSelectBook = (bookId: string) => {
-    const book = books.find((b) => b.id === bookId);
-    setSelectedBook(book || null);
-  };
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
 
-  const handleDelete = async (bookId: string) => {
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
+  const { books, loading, error, success } = useSelector(
+    (state: RootState) => state.book
+  );
 
-    try {
-      await deleteBook(bookId);
-      setSuccess("Book successfully deleted");
-      setBooks((prevBooks) => prevBooks.filter((b) => b.id !== bookId));
-    } catch (e: unknown) {
-      if (axios.isAxiosError(e)) {
-        setError(e.response?.data?.message || "");
-      } else if (e instanceof Error) {
-        setError(e.message);
-      } else {
-        setError("");
-      }
-    } finally {
-      setLoading(false);
-    }
+  const handleDelete = (bookId: string) => {
+    dispatch(removeBookAction(bookId));
   };
 
   return {
     books,
-    selectedBook,
     loading,
     error,
     success,
     handleDelete,
-    handleSelectBook,
   };
 };
