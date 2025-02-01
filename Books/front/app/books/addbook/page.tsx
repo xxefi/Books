@@ -17,19 +17,23 @@ export default function AddBook() {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #4e73df, #1e3c72)",
+        background: "linear-gradient(120deg, #6a11cb, #2575fc)",
         color: "#fff",
         padding: 3,
       }}
     >
       <Box
         sx={{
-          background: "rgba(255, 255, 255, 0.15)",
-          borderRadius: "16px",
-          padding: "30px",
-          boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.3)",
+          background: "white",
+          borderRadius: "8px",
+          padding: "40px 30px",
           maxWidth: "500px",
           width: "100%",
+          boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.2)",
+          transition: "transform 0.3s ease",
+          "&:hover": {
+            transform: "translateY(-10px)",
+          },
         }}
       >
         <Typography
@@ -38,8 +42,9 @@ export default function AddBook() {
           sx={{
             marginBottom: 3,
             textAlign: "center",
-            fontWeight: "bold",
-            color: "#fff",
+            fontWeight: "600",
+            color: "#333",
+            fontFamily: "Roboto, sans-serif",
           }}
         >
           Add New Book

@@ -1,4 +1,3 @@
-"use client";
 import {
   TextField,
   FormControl,
@@ -9,11 +8,6 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { BookFormProps } from "../interfaces/props/bookform.props";
-import {
-  buttonStyle,
-  formControlStyle,
-  textFieldStyle,
-} from "../styles/BookAddForm.styles";
 
 export const BookAddForm = ({
   formData,
@@ -22,7 +16,7 @@ export const BookAddForm = ({
   onSubmit,
 }: BookFormProps) => {
   return (
-    <form onSubmit={onSubmit} style={{ width: "100%", padding: "20px" }}>
+    <form onSubmit={onSubmit} style={{ width: "100%", marginTop: "20px" }}>
       <TextField
         label="Title"
         name="title"
@@ -30,7 +24,17 @@ export const BookAddForm = ({
         onChange={handleChange}
         fullWidth
         required
-        sx={textFieldStyle}
+        sx={{
+          marginBottom: "20px",
+          borderRadius: "8px",
+          "& .MuiInputLabel-root": {
+            color: "#6a11cb",
+          },
+          "& .MuiOutlinedInput-root": {
+            borderColor: "#2575fc",
+            borderRadius: "8px",
+          },
+        }}
       />
       <TextField
         label="Author"
@@ -39,7 +43,19 @@ export const BookAddForm = ({
         onChange={handleChange}
         fullWidth
         required
-        sx={textFieldStyle}
+        sx={{
+          marginBottom: "20px",
+          "& .MuiInputLabel-root": {
+            color: "#6a11cb",
+
+            borderRadius: "8px",
+          },
+          "& .MuiOutlinedInput-root": {
+            borderColor: "#2575fc",
+
+            borderRadius: "8px",
+          },
+        }}
       />
       <TextField
         label="Year"
@@ -49,15 +65,39 @@ export const BookAddForm = ({
         onChange={handleChange}
         fullWidth
         required
-        sx={textFieldStyle}
+        sx={{
+          marginBottom: "20px",
+          "& .MuiInputLabel-root": {
+            color: "#6a11cb",
+
+            borderRadius: "8px",
+          },
+          "& .MuiOutlinedInput-root": {
+            borderColor: "#2575fc",
+
+            borderRadius: "8px",
+          },
+        }}
       />
-      <FormControl fullWidth sx={formControlStyle}>
+      <FormControl fullWidth sx={{ marginBottom: "20px" }}>
         <InputLabel>Genre</InputLabel>
         <Select
           name="genre"
           value={formData.genre}
           onChange={handleChange}
           required
+          sx={{
+            "& .MuiInputLabel-root": {
+              color: "#6a11cb",
+
+              borderRadius: "8px",
+            },
+            "& .MuiOutlinedInput-root": {
+              borderColor: "#2575fc",
+
+              borderRadius: "8px",
+            },
+          }}
         >
           <MenuItem value="Fiction">Fiction</MenuItem>
           <MenuItem value="Non-Fiction">Non-Fiction</MenuItem>
@@ -73,7 +113,17 @@ export const BookAddForm = ({
         variant="contained"
         color="primary"
         fullWidth
-        sx={buttonStyle}
+        sx={{
+          backgroundColor: "#2575fc",
+          borderRadius: "30px",
+          padding: "12px 16px",
+          fontSize: "16px",
+          fontWeight: "bold",
+          textTransform: "none",
+          "&:hover": {
+            backgroundColor: "#6a11cb",
+          },
+        }}
         disabled={loading}
       >
         {loading ? <CircularProgress size={24} color="inherit" /> : "Add Book"}

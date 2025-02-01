@@ -50,6 +50,13 @@ const bookSlice = createSlice({
       state.warning = null;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase("book/clearNotificationsAsync", (state) => {
+      state.success = null;
+      state.error = null;
+      state.warning = null;
+    });
+  },
 });
 
 export const {

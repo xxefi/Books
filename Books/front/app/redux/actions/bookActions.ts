@@ -7,7 +7,12 @@ import {
   setSuccess,
   setWarning,
 } from "../slices/bookSlice";
-import { addBook, deleteBook, getAllBooks } from "@/app/services/bookService";
+import {
+  addBook,
+  deleteBook,
+  getAllBooks,
+  updateBook,
+} from "@/app/services/bookService";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../store";
 import { PayloadAction } from "@reduxjs/toolkit";
@@ -50,7 +55,10 @@ export const updateBookAction = (
   bookData: Partial<Book>
 ): ThunkAction<void, RootState, unknown, PayloadAction<Book>> => {
   return async (dispatch: Dispatch, getState) => {
-    const selectedBook = getState().book.books.find((b) => b.id === bookId);
+    dispatch(setLoading());
+
+    const { books } = getState().book;
+    const selectedBook = books.find((b) => b.id === bookId);
 
     if (!selectedBook) {
       dispatch(setWarning("Book not found"));
@@ -64,6 +72,18 @@ export const updateBookAction = (
     if (!hasChanges) {
       dispatch(setWarning("No changes detected"));
       return;
+    }
+
+    try {
+      const updatedBook = await updateBook(bookId, bookData);
+      const updatedBooks = books.map((b) =>
+        b.id === bookId ? updatedBook : b
+      );
+
+      dispatch(setBooks(updatedBooks));
+      dispatch(setSuccess("Book updated"));
+    } catch (e: unknown) {
+      dispatch(setError(e instanceof Error ? e.message : ""));
     }
   };
 };

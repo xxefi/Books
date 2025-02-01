@@ -4,11 +4,11 @@ export const API_URL = "http://localhost:3000/api/v1/books";
 
 const handleApiError = (e: unknown) => {
   if (axios.isAxiosError(e)) {
-    throw new Error(e.response?.data?.message || "Server error :(");
+    throw new Error(e.response?.data?.message || "Server error");
   } else if (e instanceof Error) {
     throw new Error(e.message);
   } else {
-    throw new Error("");
+    throw new Error("An unknown error occurred");
   }
 };
 

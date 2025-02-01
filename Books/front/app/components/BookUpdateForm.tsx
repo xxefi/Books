@@ -13,6 +13,7 @@ export const BookUpdateForm = ({
   success,
   error,
 }: BookUpdateFormProps) => {
+  if (!selectedBook) return null;
   return (
     <>
       <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
@@ -62,7 +63,6 @@ export const BookUpdateForm = ({
           Update book
         </Button>
       </form>
-
       {warning && <AlertMessage severity="warning" message={warning} />}
       {error && <AlertMessage severity="error" message={error} />}
       {success && <AlertMessage severity="success" message={success} />}

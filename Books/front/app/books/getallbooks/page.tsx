@@ -13,7 +13,7 @@ export default function GetAllBooks() {
       sx={{
         minHeight: "100vh",
         padding: 4,
-        background: "linear-gradient(135deg, #1e3c72, #2a5298)",
+        background: "linear-gradient(135deg, #2a5298, #1e3c72)",
         color: "#fff",
       }}
     >
@@ -24,23 +24,38 @@ export default function GetAllBooks() {
           marginBottom: 5,
           fontWeight: "600",
           letterSpacing: "1.5px",
+          color: "#ff9800",
         }}
       >
         All Books
       </Typography>
       {loading && (
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", justifyContent: "center", paddingTop: 5 }}>
           <CircularProgress
             sx={{
               display: "block",
               color: "#ff9800",
-              transform: "scale(1.5)",
+              transform: "scale(1.8)",
             }}
           />
         </Box>
       )}
       {error && <AlertMessage severity="error" message={error} size="small" />}
 
+      {!loading && !error && books && books.length === 0 && (
+        <Typography
+          variant="h6"
+          sx={{
+            textAlign: "center",
+            color: "#ffcc00",
+            fontWeight: "500",
+            marginTop: 3,
+            fontStyle: "italic",
+          }}
+        >
+          No books found
+        </Typography>
+      )}
       {!loading && !error && books && books.length > 0 && (
         <Grid container spacing={3} justifyContent="center">
           {books.map((book) => (
