@@ -39,7 +39,7 @@ export const BookCard = ({ book }: BookCardProps) => {
             marginBottom: 1,
           }}
         >
-          Author: {book.author}
+          Author: {book.author.name}
         </Typography>
         <Typography
           variant="body2"

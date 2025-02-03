@@ -41,7 +41,12 @@ export const addBookAction = (
   return async (dispatch: Dispatch) => {
     dispatch(setLoading());
     try {
-      const newBook = await addBook(bookData);
+      const newBookData = {
+        ...bookData,
+        author: String(bookData.author),
+        genre: String(bookData.genre),
+      };
+      const newBook = await addBook(newBookData);
       dispatch(setBooks([newBook]));
       dispatch(setSuccess("Book added"));
     } catch (e: unknown) {
@@ -75,7 +80,13 @@ export const updateBookAction = (
     }
 
     try {
-      const updatedBook = await updateBook(bookId, bookData);
+      const updatedBookData = {
+        ...bookData,
+        author: bookData.author ? String(bookData.author) : undefined,
+        genre: bookData.genre ? String(bookData.genre) : undefined,
+      };
+
+      const updatedBook = await updateBook(bookId, updatedBookData);
       const updatedBooks = books.map((b) =>
         b.id === bookId ? updatedBook : b
       );

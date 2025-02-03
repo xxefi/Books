@@ -1,0 +1,228 @@
+openapi: 3.0.0
+info:
+  title: Book API
+  version: 1.0.0
+  description: API for managing books and authors
+
+servers:
+  - url: http://localhost:3000/api
+
+paths:
+  /books/getallbooks:
+    get:
+      tags:
+        - Books
+      responses:
+        "200":
+          description: List of all books
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        authorId:
+                          type: string
+        "404":
+          description: Books not found
+
+  /books/bookid/{id}:
+    get:
+      tags:
+        - Books
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Book details
+        "400":
+          description: Invalid ID
+
+    put:
+      tags:
+        - Books
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                authorId:
+                  type: string
+      responses:
+        "200":
+          description: Book updated
+        "400":
+          description: Bad request
+        "404":
+          description: Book not found
+
+    delete:
+      tags:
+        - Books
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Book deleted
+        "404":
+          description: Book not found
+
+  /books/addbook:
+    post:
+      tags:
+        - Books
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                year:
+                  type: number
+                genre:
+                  type: string
+      responses:
+        "201":
+          description: Book added
+        "400":
+          description: Validation error
+
+  /authors/getallauthors:
+    get:
+      tags:
+        - Authors
+      responses:
+        "200":
+          description: List of all authors
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        "404":
+          description: Authors not found
+
+  /authors/author/{id}:
+    get:
+      tags:
+        - Authors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Author details
+        "404":
+          description: Author not found
+
+    put:
+      tags:
+        - Authors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        "200":
+          description: Author updated
+        "400":
+          description: Bad request
+        "404":
+          description: Author not found
+
+    delete:
+      tags:
+        - Authors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Author deleted
+        "404":
+          description: Author not found
+
+  /authors/addauthor:
+    post:
+      tags:
+        - Authors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                birthDate:
+                  type: string
+                  format: date-time
+                nationality:
+                  type: string
+      responses:
+        "201":
+          description: Author added
+        "400":
+          description: Validation error

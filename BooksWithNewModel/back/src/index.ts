@@ -2,8 +2,8 @@ import express, { Request, Response, NextFunction } from "express";
 import { connectDB } from "./config/db";
 import { bookRouter } from "./routes/bookRouter";
 import { authorRouter } from "./routes/authorRouter";
-import swaggerSetup from "./swagger";
 import cors from "cors";
+import { setupSwagger } from "./swagger/swagger";
 
 const app = express();
 const PORT = 3000;
@@ -12,8 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 connectDB();
-
-swaggerSetup(app);
+setupSwagger(app);
 
 app.use("/api/books", bookRouter);
 app.use("/api/authors", authorRouter);

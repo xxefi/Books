@@ -30,7 +30,7 @@ export const BookUpdateForm = ({
           label="Author"
           variant="outlined"
           fullWidth
-          value={updatedFields.author ?? selectedBook.author}
+          value={updatedFields.author ?? selectedBook.author.name}
           onChange={handleChange}
           name="author"
           sx={{ marginBottom: 2 }}

@@ -13,9 +13,9 @@ export const useAddBookForm = () => {
   );
   const initialBookData: Book = {
     title: "",
-    author: "",
+    author: undefined,
     year: 0,
-    genre: "",
+    genre: undefined,
   };
 
   const handleChange = (

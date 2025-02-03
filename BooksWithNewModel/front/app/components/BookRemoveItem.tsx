@@ -14,7 +14,7 @@ export const BookRemoveItem = ({ book, onDelete, disabled }: BookItemProps) => {
     >
       <ListItemText
         primary={book.title}
-        secondary={`Author: ${book.author} | Year: ${book.year}`}
+        secondary={`Author: ${book.author.name} | Year: ${book.year}`}
       />
       <Button
         variant="contained"

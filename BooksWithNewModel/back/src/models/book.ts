@@ -1,10 +1,10 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, Types } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 
 export interface IBook extends Document {
   id: string;
   title: string;
-  author: string;
+  author: Types.ObjectId;
   year: number;
   genre: string;
 }

@@ -4,10 +4,13 @@ npm-debug.log
 yarn-error.log
 package-lock.json
 yarn.lock
+cs.env
 .pnp.js
 .pnp.cjs
 
 .gitignore/
+.dockerignore/
+Dockerfile/
 
 # TypeScript
 dist/
