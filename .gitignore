@@ -8,9 +8,9 @@ cs.env
 .pnp.js
 .pnp.cjs
 
-.gitignore/
-.dockerignore/
-Dockerfile/
+.gitignore
+.dockerignore
+Dockerfile
 
 # TypeScript
 dist/
